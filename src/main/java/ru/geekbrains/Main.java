@@ -7,16 +7,16 @@ public class Main {
         sessionFactoryUtils.init();
 
         try {
-            UserDao userDao = new UserDao(sessionFactoryUtils);
-            System.out.println(userDao.findById(1L));
+            ProductDao productDao = new ProductDao(sessionFactoryUtils);
+            System.out.println(productDao.findById(1L));
             System.out.println("<------------->");
 
-            userDao.update(1L, 3);
-            System.out.println(userDao.findAll());
+            productDao.update(1L, 3);
+            System.out.println(productDao.findAll());
             System.out.println("<------------->");
 
-            userDao.delete(3L);
-            System.out.println(userDao.findAll());
+            productDao.delete(3L);
+            System.out.println(productDao.findAll());
             System.out.println("<------------->");
         } catch (Exception e) {
             e.printStackTrace();

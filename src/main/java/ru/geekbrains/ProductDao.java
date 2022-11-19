@@ -4,20 +4,20 @@ import org.hibernate.Session;
 
 import java.util.List;
 
-public class UserDao {
+public class ProductDao {
 
-    private SessionFactoryUtils sessionFactoryUtils;
+    private final SessionFactoryUtils sessionFactoryUtils;
 
-    public UserDao(SessionFactoryUtils sessionFactoryUtils){
+    public ProductDao(SessionFactoryUtils sessionFactoryUtils){
         this.sessionFactoryUtils = sessionFactoryUtils;
     }
 
     public Product findById(Long id) {
         try (Session session = sessionFactoryUtils.getSession()){
             session.beginTransaction();
-            Product user = session.get(Product.class, id);
+            Product product = session.get(Product.class, id);
             session.getTransaction().commit();
-            return user;
+            return product;
         }
     }
 
