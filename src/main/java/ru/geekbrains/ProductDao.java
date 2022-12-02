@@ -4,11 +4,11 @@ import org.hibernate.Session;
 
 import java.util.List;
 
-public class UserDao {
+public class ProductDao {
 
-    private SessionFactoryUtils sessionFactoryUtils;
+    private final SessionFactoryUtils sessionFactoryUtils;
 
-    public UserDao(SessionFactoryUtils sessionFactoryUtils){
+    public ProductDao(SessionFactoryUtils sessionFactoryUtils){
         this.sessionFactoryUtils = sessionFactoryUtils;
     }
 
