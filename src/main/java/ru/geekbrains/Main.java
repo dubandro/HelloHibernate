@@ -11,7 +11,7 @@ public class Main {
             System.out.println(productDao.findById(1L));
             System.out.println("<------------->");
 
-            productDao.update(1L, 3);
+            productDao.updateCount(1L, 3);
             System.out.println(productDao.findAll());
             System.out.println("<------------->");
 

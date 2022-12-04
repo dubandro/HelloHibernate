@@ -15,9 +15,9 @@ public class ProductDao {
     public Product findById(Long id) {
         try (Session session = sessionFactoryUtils.getSession()){
             session.beginTransaction();
-            Product user = session.get(Product.class, id);
+            Product product = session.get(Product.class, id);
             session.getTransaction().commit();
-            return user;
+            return product;
         }
     }
 
@@ -38,11 +38,20 @@ public class ProductDao {
         }
     }
 
-    public void update(Long id, Integer newCount) {
+    public void updateCount(Long id, Integer newCount) {
         try (Session session = sessionFactoryUtils.getSession()){
             session.beginTransaction();
             Product product = session.get(Product.class, id);
             product.setCount(newCount);
+            session.getTransaction().commit();
+        }
+    }
+
+    public void updateCoast(Long id, Long newCoast) {
+        try (Session session = sessionFactoryUtils.getSession()){
+            session.beginTransaction();
+            Product product = session.get(Product.class, id);
+            product.setCost(newCoast);
             session.getTransaction().commit();
         }
     }

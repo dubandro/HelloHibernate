@@ -2,8 +2,10 @@ package ru.geekbrains;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
 
     @Id
@@ -19,6 +21,14 @@ public class Product {
 
     @Column(name = "count")
     private Integer count;
+
+    @ManyToMany
+    @JoinTable(
+            name = "users_products",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> users;
 
     public Product() {
     }
