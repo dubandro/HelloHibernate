@@ -15,9 +15,9 @@ public class ProductDao {
     public Product findById(Long id) {
         try (Session session = sessionFactoryUtils.getSession()){
             session.beginTransaction();
-            Product user = session.get(Product.class, id);
+            Product product = session.get(Product.class, id);
             session.getTransaction().commit();
-            return user;
+            return product;
         }
     }
 
